@@ -1,6 +1,6 @@
 async function displayMovies(page) {
   const response = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=9a2954cb0084e80efa20b3729db69067`
+    `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=9a2954cb0084e80efa20b3729db69067`
   );
   const data = await response.json();
   const popular = data.results;
@@ -17,18 +17,18 @@ async function displayMovies(page) {
     let gameHtml;
     let rating = Math.round(movie.vote_average * 10) / 10;
     let year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A";
-    let link = `https://moviesapi.club/movie/${movie.id}`;
+    year = movie.first_air_date ? movie.first_air_date.slice(0, 4) : "N/A";
     gameHtml = `<div class="card" style="padding-top: 5px">
-        <div class="rating">★ ${rating}</div>
-        <div class="year">${year}</div>
-        <a onclick="hire('${link}');"> 
-          <div class="image-container">
-            <img loading="eager" src="${poster}" style="border-radius: 25px">
-            <div class="play-button"></div>
-            <p class="item-name">${movie.name || movie.title}</p> 
-          </div>
-        </a>
-      </div>`;
+              <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+              <div class="rating">★ ${rating}</div>
+              <div class="year">${year}</div>
+                <div class="image-container">
+                  <img loading="eager" src="${poster}" style="border-radius: 25px">
+                  <div class="play-button"></div>
+                  <p class="item-name">${movie.name || movie.title}</p> 
+                </div>
+              </a>
+            </div>`;
     gameContainer.insertAdjacentHTML("beforeend", gameHtml);
   });
 }
