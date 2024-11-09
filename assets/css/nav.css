@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.navbar {
+  box-sizing: border-box;
+  background: #181825;
+  box-shadow: 0 0 15px 2px #11111b;
+  backdrop-filter: #181825;
+  -webkit-backdrop-filter: #181825;
+  transition: 0.35s ease;
+  border-radius: 20px;
+  width: fill;
+  margin: 15px 20px;
+  z-index: 100;
+  position: static; /* Position is static */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.navbar a {
+  font-family: "Inter", Arial, sans-serif;
+  color: #cdd6f4;
+}
+
+.navbar a:not(:first-child) {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+.navbar a:not(:first-child):hover {
+  font-size: 18px;
+  color: #cdd6f4;
+  background-color: #45475a;
+  border-radius: 10px;
+  scale: 1.05;
+}
+
+.navbar a:first-child {
+  padding: 10px 25px;
+  font-size: 26px;
+  font-weight: 650;
+  margin-right: auto;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.navbar a:first-child:hover {
+  transform: translateX(10px);
+  color: #484c51; /* #bbbbbb is og */
+  background-color: #e7928f;
+  border-radius: 10px;
+  scale: 1.1;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+
+  nav li {
+    padding: 0.5rem 0;
+  }
+}

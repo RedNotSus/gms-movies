@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <script src="/assets/js/font.js"></script>
+    <meta name="google" content="notranslate" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/media.css?2" />
+    <title>GMS Movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Rednotsus" />
+    <meta http-equiv="Cache-control" content="public">
+    <meta charset="utf-8">
+    <meta name="description" content="Watch your favorite movies, tv shows, and anime for free on gms movies!" />
+    </script>
+    <script src="/assets/js/media.js?19"></script>
+    <script src="/assets/js/homepage.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <a id="nav-title" href="/">GMSMovies</a>
+            <a href="/movies"><i class="fa-solid fa-video">&nbsp;</i>Movies</a>
+            <a href="/tv"><i class="fa-solid fa-tv">&nbsp;</i>TV Series</a>
+            <a href="/top"><i class="fa-solid fa-chart-line">&nbsp;</i>Top</a>
+        </div>
+    </nav>
+    <br>
+    <h1>Home</h1>
+    <input tag="searchbar" id="searchbar" placeholder="Enter the Movie/TV Name and press Enter!" class="form__input"
+        autocomplete="off">
+    <h5 id="cooldownNotice" style="display: none;">Hold on! You're on cooldown.</h5><br><br>
+    <br>
+    <h3 class="title">Trending</h3>
+    <div id="game-container">
+        <p id="text"></p>
+    </div>
+    <br>
+    <div class="title-container">
+        <h3 class="title">Latest Movies &nbsp;&nbsp; <a href="/movies" class="btn"><i
+                    class="fas fa-angle-right"></i></a></h3>
+
+    </div>
+    <div class="scroll-container-wrapper">
+        <div class="scroll-container" id="movie-scroll-container">
+            <div id="movie-container">
+                <p id="text"></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="title-container">
+        <h3 class="title">Latest TV Shows &nbsp;&nbsp;<a href="/movies" class="btn"><i
+                    class="fas fa-angle-right"></i></a></h3>
+
+    </div>
+    <div class="scroll-container-wrapper">
+        <div class="scroll-container" id="tv-scroll-container">
+            <div id="tv-container">
+                <p id="text"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="attribution">
+        Images and titles provided by
+        <a href="https://www.themoviedb.org/"><img src="/img/tmdb.svg" alt="TMDB Logo"
+                style="height: 20px; vertical-align: middle;"></a>
+    </div>
+    <script src="/assets/uv/js/hiring.js?v=8"></script>
+    <script src="assets/uv/uv.bundle.js" defer></script>
+    <script src="assets/uv/uv.config.js" defer></script>
+</body>
+
+</html>
