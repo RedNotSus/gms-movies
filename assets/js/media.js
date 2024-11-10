@@ -33,7 +33,7 @@ function fetchTmdbId() {
               ? movie.first_air_date.slice(0, 4)
               : "N/A";
             gameHtml = `<div class="card" style="padding-top: 5px">
-              <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+              <a href='watch/tv?id=${movie.id}'"> 
               <div class="rating">★ ${rating}</div>
               <div class="year">${year}</div>
                 <div class="image-container">
@@ -44,11 +44,10 @@ function fetchTmdbId() {
               </a>
             </div>`;
           } else if (movie.media_type === "movie") {
-            let link = `https://moviesapi.club/movie/${movie.id}`;
             gameHtml = `<div class="card" style="padding-top: 5px">
               <div class="rating">★ ${rating}</div>
               <div class="year">${year}</div>
-              <a onclick="hire('${link}');"> 
+              <a href="watch/movie?id=${movie.id}"> 
                 <div class="image-container">
                   <img loading="eager" src="${poster}" style="border-radius: 25px">
                   <div class="play-button"></div>

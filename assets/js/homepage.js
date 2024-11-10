@@ -10,7 +10,7 @@ async function displayPopular() {
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
-      poster = "/img/no-media.svg";
+      return;
     } else {
       poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
     }
@@ -24,7 +24,7 @@ async function displayPopular() {
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
         <div class="image-container">
-          <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+          <a href='watch/tv?id=${movie.id}'"> 
             <div class="image-container">
               <img loading="eager" src="${poster}" style="border-radius: 25px">
               <div class="play-button"></div>
@@ -34,11 +34,10 @@ async function displayPopular() {
         </div>
       </div>`;
     } else if (movie.media_type === "movie") {
-      let link = `https://moviesapi.club/movie/${movie.id}`;
       gameHtml = `<div class="card" style="padding-top: 5px">
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
-        <a onclick="hire('${link}');"> 
+        <a href="watch/movie?id=${movie.id}"> 
           <div class="image-container">
             <img loading="eager" src="${poster}" style="border-radius: 25px">
             <div class="play-button"></div>
@@ -62,7 +61,7 @@ async function displayMovies() {
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
-      poster = "/img/no-media.svg";
+      return;
     } else {
       poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
     }
@@ -76,7 +75,7 @@ async function displayMovies() {
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
         <div class="image-container">
-          <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+          <a href='watch/tv?id=${movie.id}'"> 
             <div class="image-container">
               <img loading="eager" src="${poster}" style="border-radius: 25px">
               <div class="play-button"></div>
@@ -86,11 +85,10 @@ async function displayMovies() {
         </div>
       </div>`;
     } else if (movie.media_type === "movie") {
-      let link = `https://moviesapi.club/movie/${movie.id}`;
       gameHtml = `<div class="card" style="padding-top: 5px">
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
-        <a onclick="hire('${link}');"> 
+        <a href='watch/movie?id=${movie.id}'"> 
           <div class="image-container">
             <img loading="eager" src="${poster}" style="border-radius: 25px">
             <div class="play-button"></div>
@@ -114,7 +112,7 @@ async function displayTV() {
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
-      poster = "/img/no-media.svg";
+      return;
     } else {
       poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
     }
@@ -128,7 +126,7 @@ async function displayTV() {
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
         <div class="image-container">
-          <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+          <a href='watch/tv?id=${movie.id}'"> 
             <div class="image-container">
               <img loading="eager" src="${poster}" style="border-radius: 25px">
               <div class="play-button"></div>
@@ -138,11 +136,10 @@ async function displayTV() {
         </div>
       </div>`;
     } else if (movie.media_type === "movie") {
-      let link = `https://moviesapi.club/movie/${movie.id}`;
       gameHtml = `<div class="card" style="padding-top: 5px">
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
-        <a onclick="hire('${link}');"> 
+        <a href="watch/movie?id=${movie.id}"> 
           <div class="image-container">
             <img loading="eager" src="${poster}" style="border-radius: 25px">
             <div class="play-button"></div>

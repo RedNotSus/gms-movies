@@ -9,7 +9,7 @@ async function displayMovies(page) {
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
-      poster = "/img/no-media.svg";
+      return;
     } else {
       poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
     }
@@ -19,7 +19,7 @@ async function displayMovies(page) {
     let year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A";
     year = movie.first_air_date ? movie.first_air_date.slice(0, 4) : "N/A";
     gameHtml = `<div class="card" style="padding-top: 5px">
-              <a onclick="promptForSeasonAndEpisode(${movie.id})"> 
+              <a href='watch/tv?id=${movie.id}'"> 
               <div class="rating">★ ${rating}</div>
               <div class="year">${year}</div>
                 <div class="image-container">
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 3; i++) {
     displayMovies(i);
   }
 });

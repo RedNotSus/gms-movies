@@ -9,7 +9,7 @@ async function displayMovies(page) {
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
-      poster = "/img/no-media.svg";
+      return;
     } else {
       poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
     }
@@ -17,11 +17,11 @@ async function displayMovies(page) {
     let gameHtml;
     let rating = Math.round(movie.vote_average * 10) / 10;
     let year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A";
-    let link = `https://moviesapi.club/movie/${movie.id}`;
+
     gameHtml = `<div class="card" style="padding-top: 5px">
         <div class="rating">★ ${rating}</div>
         <div class="year">${year}</div>
-        <a onclick="hire('${link}');"> 
+        <a href="watch/movie?id=${movie.id}"> 
           <div class="image-container">
             <img loading="eager" src="${poster}" style="border-radius: 25px">
             <div class="play-button"></div>
