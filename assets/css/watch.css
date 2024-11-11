@@ -1,27 +1,28 @@
 #gameframe {
-  margin-top: 3vh;
+  margin-top: 5vh;
   display: flex;
 }
 #gameframe .gameDisplay {
   margin: auto;
   outline: 0.4vw solid #313244;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.24);
-  width: 60.5vw;
-  height: 38.5vw;
+  width: 65.5vw;
+  height: 34.1vw;
   background-color: #19191b;
   border-radius: 0.5vw;
   overflow: hidden;
 }
 #gameframe .game {
   margin: auto;
-  width: 60.5vw;
-  height: 34vw;
+  width: 65.5vw;
+  height: 34.1vw;
   background-color: #6c7086;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 #gameframe .game iframe {
-  width: 60.6vw;
+  width: 65.6vw;
   height: 34.1vw;
   border: 0;
 }
@@ -130,4 +131,105 @@
 }
 .reloadbtn:hover {
   transform: scaleX(1.2) scaleY(1.2) rotate(360deg);
+}
+.episode-selector {
+  padding: 0.5vw;
+  background-color: #1e1e2e;
+  border-radius: 0.5vw;
+  color: #cdd6f4;
+  width: 20%;
+  max-width: 500px;
+  overflow: hidden;
+  margin-right: 2vw;
+  outline: 0.4vw solid #313244;
+}
+
+#seasonSelectorContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #1e1e2e;
+  padding: 0.5vw;
+}
+
+#seasonSelector {
+  width: 100%;
+  padding: 0.5vw;
+  margin-bottom: 0.5vw;
+  background-color: #313244;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 0.3vw;
+  font-size: 1vw;
+  font-family: sans-serif;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+#seasonSelector:hover {
+  background-color: #45475a;
+}
+
+.scrollable-box {
+  max-height: 30vw;
+  overflow-y: auto;
+  padding-right: 0.5vw;
+}
+
+.scrollable-box::-webkit-scrollbar {
+  width: 0.4vw;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+  background-color: #6c7086;
+  border-radius: 0.3vw;
+}
+
+#episodeList .episode-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8vw;
+  margin-bottom: 0.5vw;
+  background-color: #313244;
+  color: #cdd6f4;
+  border-radius: 0.3vw;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#episodeList .episode-item:hover {
+  background-color: #45475a;
+}
+
+.episode-item.active {
+  background-color: #d0d0d0;
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  #gameframe {
+    flex-direction: column;
+  }
+  .episode-selector {
+    width: 100vw;
+    margin-left: 15vw;
+    margin-top: 10vw;
+  }
+}
+
+@media (max-width: 600px) {
+  #gameframe {
+    flex-direction: column;
+  }
+  .episode-selector {
+    width: 65vw;
+    margin-left: 15vw;
+    margin-top: 10vw;
+  }
+  .scrollable-box {
+    max-height: 100vw;
+  }
 }
