@@ -34,26 +34,6 @@ async function displayMovies(page) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  let cooldown = false;
-  let popularText = document.getElementById("bigDiv");
-  document
-    .getElementById("searchbar")
-    .addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        popularText.style.display = "none";
-        if (cooldown) {
-          document.getElementById("cooldownNotice").style.display = "block";
-        } else {
-          fetchTmdbId();
-          document.getElementById("cooldownNotice").style.display = "none";
-          cooldown = true;
-          setTimeout(function () {
-            cooldown = false;
-            document.getElementById("cooldownNotice").style.display = "none";
-          }, 2000);
-        }
-      }
-    });
   for (let i = 1; i <= 3; i++) {
     displayMovies(i);
   }

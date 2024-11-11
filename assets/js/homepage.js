@@ -107,8 +107,8 @@ async function displayTV() {
   const data = await response.json();
   const popular = data.results;
 
-  const gameContainer = document.getElementById("tv-container"); // Corrected container ID
-  gameContainer.innerHTML = "";
+  const gameContainer = document.getElementById("tv-container");
+
   popular.forEach(function (movie) {
     let poster;
     if (movie.poster_path === null || !movie.poster_path) {
@@ -153,26 +153,6 @@ async function displayTV() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  let cooldown = false;
-  let popularText = document.getElementById("bigDiv");
-  document
-    .getElementById("searchbar")
-    .addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        popularText.style.display = "none";
-        if (cooldown) {
-          document.getElementById("cooldownNotice").style.display = "block";
-        } else {
-          fetchTmdbId();
-          document.getElementById("cooldownNotice").style.display = "none";
-          cooldown = true;
-          setTimeout(function () {
-            cooldown = false;
-            document.getElementById("cooldownNotice").style.display = "none";
-          }, 2000);
-        }
-      }
-    });
   displayPopular();
   displayMovies();
   displayTV();
