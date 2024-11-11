@@ -63,22 +63,3 @@ function fetchTmdbId() {
     console.error("Error fetching data:", error);
   }
 }
-function promptForSeasonAndEpisode(videoId) {
-  const season = prompt("Enter season number:");
-  const episode = prompt("Enter episode number:");
-  if (!season || !episode) {
-    return;
-  } else if (isNaN(season) || isNaN(episode)) {
-    alert("Season and episode must be numbers");
-    return;
-  } else if (season < 1 || episode < 1) {
-    alert("Season and episode must be greater than 0");
-    return;
-  } else if (season.includes(".") || episode.includes(".")) {
-    alert("Season and episode must be whole numbers");
-    return;
-  }
-
-  const link = `https://moviesapi.club/tv/${videoId}-${season}-${episode}`;
-  hire(link);
-}

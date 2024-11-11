@@ -11,7 +11,7 @@
   width: fill;
   margin: 15px 20px;
   z-index: 100;
-  position: static; /* Position is static */
+  position: static;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -48,8 +48,7 @@
 }
 .navbar a:first-child:hover {
   transform: translateX(10px);
-  color: #484c51; /* #bbbbbb is og */
-  background-color: #e7928f;
+  background-color: #45475a;
   border-radius: 10px;
   scale: 1.1;
 }

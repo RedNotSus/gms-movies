@@ -35,7 +35,7 @@ async function displayMovies(page) {
 
 document.addEventListener("DOMContentLoaded", function () {
   let cooldown = false;
-  let popularText = document.getElementById("popular");
+  let popularText = document.getElementById("bigDiv");
   document
     .getElementById("searchbar")
     .addEventListener("keypress", function (e) {
