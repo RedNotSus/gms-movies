@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://movies.ch3n.cc">
-    <img src="img/logo.png" alt="Logo">
+    <img src="https://raw.githubusercontent.com/RedNotSus/gms-movies/refs/heads/main/img/logo.png" alt="Logo">
   </a>
 
 <h3 align="center">GMS Movies</h3>
@@ -51,7 +51,6 @@
 
 ## About The Project
 
-<img src="https://raw.githubusercontent.com/RedNotSus/gms-movies/refs/heads/main/img/logo.png">
 
 This is a really easy way to watch your favorite movies and tv shows for free. It's a simple website that uses a few APIs to get the data and then displays it in a nice way.
 
