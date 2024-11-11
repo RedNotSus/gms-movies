@@ -51,7 +51,7 @@
 
 ## About The Project
 
-<img src="img/screenshot.png">
+<img src="https://raw.githubusercontent.com/RedNotSus/gms-movies/refs/heads/main/img/logo.png">
 
 This is a really easy way to watch your favorite movies and tv shows for free. It's a simple website that uses a few APIs to get the data and then displays it in a nice way.
 
