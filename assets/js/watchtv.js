@@ -4,6 +4,14 @@ async function getTVShowData() {
     window.location.href = "/";
     return;
   }
+  const season = new URLSearchParams(window.location.search).get("s");
+  const episode = new URLSearchParams(window.location.search).get("e");
+  if (season && episode) {
+    const iframe = document.getElementById("iframe");
+    iframe.src = `https://vidlink.pro/tv/${ID}/${season}/${episode}?nextbutton=true&autoplay=false`;
+  } else {
+    location.href = `tv?id=${ID}&s=1&e=1`;
+  }
 
   const url = `https://api.themoviedb.org/3/tv/${ID}?api_key=9a2954cb0084e80efa20b3729db69067&language=en-US`;
   try {
@@ -13,15 +21,13 @@ async function getTVShowData() {
     const filteredSeasons = show.seasons.filter(
       (season) => season.name !== "Specials"
     );
-    populateSeasonSelector(filteredSeasons);
+    populateSeasonSelector(filteredSeasons, season, episode);
   } catch (error) {
     console.error("Error fetching TV show data:", error);
   }
-  iframe = document.getElementById("iframe");
-  iframe.src = `https://vidlink.pro/tv/${ID}/1/1?nextbutton=true&autoplay=false`;
 }
 
-function populateSeasonSelector(seasons) {
+function populateSeasonSelector(seasons, currentSeason, currentEpisode) {
   const seasonSelector = document.getElementById("seasonSelector");
   seasonSelector.innerHTML = "";
   seasons.forEach((season) => {
@@ -33,48 +39,41 @@ function populateSeasonSelector(seasons) {
 
   seasonSelector.addEventListener("change", () => {
     const seasonNumber = seasonSelector.value;
-    getEpisodes(seasonNumber);
+    getEpisodes(seasonNumber, currentEpisode);
   });
 
   if (seasons.length > 0) {
-    getEpisodes(seasons[0].season_number);
+    getEpisodes(currentSeason || seasons[0].season_number, currentEpisode);
   }
 }
 
-async function getEpisodes(seasonNumber) {
+async function getEpisodes(seasonNumber, currentEpisode) {
   const ID = new URLSearchParams(window.location.search).get("id");
   const url = `https://api.themoviedb.org/3/tv/${ID}/season/${seasonNumber}?api_key=9a2954cb0084e80efa20b3729db69067&language=en-US`;
 
   try {
     const response = await fetch(url);
     const season = await response.json();
-    displayEpisodes(season.episodes, ID, seasonNumber);
+    displayEpisodes(season.episodes, ID, seasonNumber, currentEpisode);
   } catch (error) {
     console.error("Error fetching season data:", error);
   }
 }
 
-function displayEpisodes(episodes, tmdbId, seasonNumber) {
+function displayEpisodes(episodes, tmdbId, seasonNumber, currentEpisode) {
   const episodeList = document.getElementById("episodeList");
   episodeList.innerHTML = "";
 
-  episodes.forEach((episode, index) => {
+  episodes.forEach((episode) => {
     const episodeItem = document.createElement("div");
     episodeItem.classList.add("episode-item");
     episodeItem.textContent = `Episode ${episode.episode_number}: ${episode.name}`;
 
     episodeItem.addEventListener("click", () => {
-      const iframe = document.getElementById("iframe");
-      iframe.src = `https://vidlink.pro/tv/${tmdbId}/${seasonNumber}/${episode.episode_number}?nextbutton=true&autoplay=false`;
-
-      document.querySelectorAll(".episode-item").forEach((item) => {
-        item.classList.remove("active");
-      });
-
-      episodeItem.classList.add("active");
+      location.href = `tv?id=${tmdbId}&s=${seasonNumber}&e=${episode.episode_number}`;
     });
 
-    if (index === 0 && seasonNumber === 1) {
+    if (episode.episode_number == currentEpisode) {
       episodeItem.classList.add("active");
     }
 
